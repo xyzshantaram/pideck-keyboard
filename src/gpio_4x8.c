@@ -91,6 +91,7 @@ void emit_key(int fd, int code, int state) {
   if (scancode == -1)
     return;
   uinput_emit(fd, EV_MSC, MSC_SCAN, scancode);
+  usleep(200);
   uinput_emit(fd, EV_KEY, code, state);
   usleep(1000);
   uinput_emit(fd, EV_SYN, SYN_REPORT, 0);
