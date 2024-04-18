@@ -87,9 +87,13 @@ typedef struct emitted_t {
 } Emitted;
 
 void emit_key(int fd, int code, int state) {
-    uinput_emit(fd, EV_KEY, code, state);
-    usleep(1000);
-    uinput_emit(fd, EV_SYN, SYN_REPORT, 0);
+  int scancode = get_key_scancode(code);
+  if (scancode == -1)
+    return;
+  uinput_emit(fd, EV_MSC, MSC_SCAN, scancode);
+  uinput_emit(fd, EV_KEY, code, state);
+  usleep(1000);
+  uinput_emit(fd, EV_SYN, SYN_REPORT, 0);
 }
 
 void emit_combined_key(int fd, int wrapper, int code) {
