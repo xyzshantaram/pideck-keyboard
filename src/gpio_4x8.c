@@ -93,10 +93,11 @@ void emit_key(int fd, int code, int state) {
   if (scancode == -1)
     return;
   uinput_emit(fd, EV_MSC, MSC_SCAN, scancode);
-  usleep(200);
+  usleep(500);
   uinput_emit(fd, EV_KEY, code, state);
-  usleep(1000);
+  usleep(500);
   uinput_emit(fd, EV_SYN, SYN_REPORT, 0);
+  usleep(200);
 }
 
 void emit_combined_key(int fd, int wrapper, int code) {
