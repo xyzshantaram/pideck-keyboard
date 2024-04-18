@@ -29,6 +29,7 @@ int uinput_init() {
     return -1;
   ioctl(fd, UI_SET_EVBIT, EV_KEY);
   ioctl(fd, UI_SET_EVBIT, EV_REP);
+  ioctl(fd, UI_SET_EVBIT, EV_MSC);
   for (int i = 0; i < ALL_KEYS_LENGTH; i++) {
     ioctl(fd, UI_SET_KEYBIT, ALL_KEYS[i][0]);
   }
