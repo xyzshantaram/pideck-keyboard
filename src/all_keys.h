@@ -22,7 +22,7 @@ int ALL_KEYS[][2] = {
     {KEY_EQUAL, 0x0d},   {KEY_SEMICOLON, 0x27}, {KEY_LEFTSHIFT, 0x2a},
     {KEY_7, 0x08},       {KEY_8, 0x09},         {KEY_9, 0x0a},
     {KEY_0, 0x0b},       {KEY_DOT, 0x34},       {KEY_COMMA, 0x33},
-    {KEY_SLASH, 0x35}};
+    {KEY_SLASH, 0x35},   {KEY_LEFTBRACE, 0x1a}, {KEY_RIGHTBRACE, 0x1b}};
 
 #define ALL_KEYS_LENGTH sizeof(ALL_KEYS) / sizeof(*ALL_KEYS)
 
